@@ -17,7 +17,7 @@
          * Constructor
          * @private
          */
-        _create: function() {
+        _create: function(callback) {
             var that = this,
                 length = that._getLength(),
                 position = that.options.position,
@@ -31,6 +31,7 @@
                 max : length-1,
                 value : position,
                 slide : function(e, ui) {
+                    callback(e, ui);
                     console.log(that._getValue(ui.value));
                 }
             });
