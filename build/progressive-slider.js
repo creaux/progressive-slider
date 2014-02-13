@@ -189,7 +189,7 @@
     });
 
     $(document).ready(function() {
-        $('.js-progressive-slider').progressiveSlider({value : 7000});
+        $('.js-progressive-slider').progressiveSlider({position : 7000});
     });
 
 })(jQuery);
