@@ -23,6 +23,7 @@
                 position,
                 min = that.options.min;
 
+            // Get position of slider according to value
             for (var i = 0; i < that._getValues().length; i++) {
                 if (that._getValues()[i] == that.options.position) {
                     position = i;
