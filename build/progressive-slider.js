@@ -7,8 +7,8 @@
 
     $.widget("ui.progressiveSlider", $.ui.slider, {
         options : {
-            min : 1000689,
-            max : 10000000,
+            min : 500,
+            max : 5000,
             list : [1,2,5],
             position : 0
         },
