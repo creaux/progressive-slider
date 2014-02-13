@@ -9,8 +9,7 @@
         options : {
             min : 0,
             max : 100000,
-            list : [2,5],
-            position : 0
+            position : 5000
         },
 
         /**
@@ -28,11 +27,10 @@
                 if (that._getValues()[i] == that.options.position) {
                     position = i;
                     break;
+                } else {
+                    console.log('Position: ' + that.options.position + ' is not known. Please use position value from array: ' + that._getValues());
                 }
             }
-
-            console.log(position);
-            console.log('Steps: ' + length + ', Values: '+ that._getValues());
 
             this.element.slider({
                 min : 0,
@@ -125,7 +123,7 @@
         _toMaxArray : function() {
             var that = this;
             var min = that.options.min;
-            var list = that.options.list;
+            var list = [1,2,5]; //TODO: Do this customisable
             // Dividers are array of dividers
             var dividers = [];
             // Variable with count of condition
