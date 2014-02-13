@@ -10,18 +10,25 @@
             min : 500,
             max : 5000,
             list : [1,2,5],
-            position : 0
+            position : 4000
         },
 
         /**
          * Constructor
          * @private
          */
-        _create: function(callback) {
+        _create: function() {
             var that = this,
                 length = that._getLength(),
-                position = that.options.position,
+                position,
                 min = that.options.min;
+
+            for (var i = 0; i < that._getValues().length; i++) {
+                if (that._getValues()[i] == that.options.position) {
+                    position = i;
+                    break;
+                }
+            }
 
             console.log(position);
             console.log('Steps: ' + length + ', Values: '+ that._getValues());
@@ -31,7 +38,6 @@
                 max : length-1,
                 value : position,
                 slide : function(e, ui) {
-                    callback(e, ui);
                     console.log(that._getValue(ui.value));
                 }
             });
@@ -181,7 +187,7 @@
     });
 
     $(document).ready(function() {
-        $('.js-progressive-slider').progressiveSlider();
+        $('.js-progressive-slider').progressiveSlider({value : 7000});
     });
 
 })(jQuery);
