@@ -9,7 +9,7 @@
         options : {
             min : 0,
             max : 100000,
-            position : 5001
+            position : 5000
         },
 
         /**
