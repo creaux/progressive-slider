@@ -7,10 +7,10 @@
 
     $.widget("ui.progressiveSlider", $.ui.slider, {
         options : {
-            min : 500,
-            max : 5000,
-            list : [1,2,5],
-            position : 4000
+            min : 0,
+            max : 100000,
+            list : [2,5],
+            position : 0
         },
 
         /**
@@ -153,6 +153,7 @@
                     } else {
                         reverse = (list[i+1])*multiple;
                     }
+
                     // Create list of values
                     while (current < reverse) {
                         if (current <= 5) {
