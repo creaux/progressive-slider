@@ -9,7 +9,7 @@
         options : {
             min : 0,
             max : 100000,
-            position : 5000
+            position : 5001
         },
 
         /**
@@ -23,13 +23,15 @@
                 min = that.options.min;
 
             // Get position of slider according to value
-            for (var i = 0; i < that._getValues().length; i++) {
-                if (that._getValues()[i] == that.options.position) {
-                    position = i;
-                    break;
-                } else {
-                    console.log('Position: ' + that.options.position + ' is not known. Please use position value from array: ' + that._getValues());
+            if ( $.inArray( that.options.position, that._getValues() ) > -1 ) {
+                for (var i = 0; i < that._getValues().length; i++) {
+                    if (that._getValues()[i] == that.options.position) {
+                        position = i;
+                        break;
+                    }
                 }
+            } else {
+                console.log('Position: ' + that.options.position + ' is not known. Please use position value from array: ' + that._getValues());
             }
 
             this.element.slider({
