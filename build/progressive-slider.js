@@ -26,7 +26,6 @@
             for (var i = 0; i < that._getValues().length; i++) {
                 if (that._getValues()[i] == that.options.position) {
                     position = i;
-                    break;
                 }
             }
 
