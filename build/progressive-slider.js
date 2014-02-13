@@ -1,6 +1,6 @@
 /**
  * Progressive slider widget extension for jQuery UI slider
- * By: Petr Juna
+ * By: Petr Juna, Daniel Jankovic
  */
 
 (function($) {
