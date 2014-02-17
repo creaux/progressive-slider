@@ -39,10 +39,15 @@
                 max : length-1,
                 value : position,
                 slide : function(e, ui) {
-                    console.log(that._getValue(ui.value));
+                    that._trigger('slide', null, {value : that._getValue(ui.value)});
+                    //console.log());
                 }
             });
         },
+
+//        slide : function() {
+//
+//        },
 
         /**
          * Get value
@@ -52,6 +57,12 @@
                 values = that._getValues();
             return values[position];
         },
+
+        /**
+         * Get value public
+         * @returns {*}
+         * @private
+         */
 
         /**
          * Get whole array with inc min -> max extremes
@@ -189,7 +200,9 @@
     });
 
     $(document).ready(function() {
-        $('.js-progressive-slider').progressiveSlider({position : 7000});
+        $('.js-progressive-slider').progressiveSlider({slide : function(e, ui) {
+            console.log('hello this is hte call of slider and sliding :' + ui.value)
+        }});
     });
 
 })(jQuery);
