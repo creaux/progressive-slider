@@ -1,6 +1,7 @@
 /**
  * Progressive slider widget extension for jQuery UI slider
- * By: Petr Juna, Daniel Jankovic
+ * Author: Petr Juna
+ * Thanks to Daniel Jankovic for clear and simple idea of numbered mask [1,2,5].
  */
 
 (function($) {
