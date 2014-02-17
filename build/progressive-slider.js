@@ -39,15 +39,15 @@
                 max : length-1,
                 value : position,
                 slide : function(e, ui) {
-                    that._trigger('slide', null, {value : that._getValue(ui.value)});
-                    //console.log());
+                    that._slide(ui);
                 }
             });
         },
 
-//        slide : function() {
-//
-//        },
+        _slide : function(ui) {
+          var that = this;
+          that._trigger('slide', null, {value : that._getValue(ui.value)});
+        },
 
         /**
          * Get value
