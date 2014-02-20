@@ -9,8 +9,9 @@
     $.widget("ui.progressiveSlider", $.ui.slider, {
         options : {
             min : 0,
-            max : 100000,
-            position : 5000
+            max : 100123123,
+            position : 5000,
+            increment : [1,2,5]
         },
 
         /**
@@ -137,7 +138,7 @@
         _toMaxArray : function() {
             var that = this;
             var min = that.options.min;
-            var list = [1,2,5]; //TODO: Do this customisable
+            var list = that.options.increment;
             // Dividers are array of dividers
             var dividers = [];
             // Variable with count of condition
@@ -203,7 +204,9 @@
     $(document).ready(function() {
         $('.js-progressive-slider').progressiveSlider({slide : function(e, ui) {
             console.log('hello this is hte call of slider and sliding :' + ui.value)
-        }});
+        },
+        min : 100,
+        max : 500});
     });
 
 })(jQuery);
