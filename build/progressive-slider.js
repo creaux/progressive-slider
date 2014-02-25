@@ -42,13 +42,12 @@
 
             this.element.slider({
                 min : 0,
-                max : length-1,
+                max : length,
                 value : position,
                 slide : function(e, ui) {
                     that._slide(ui);
-                    var offsetX = e.pageX - this.offsetLeft;
-                    that.element.find('.slider-selection').width(offsetX); //TODO: Little big buggy it needs to be aproximate to better position (this is on mouse position we need to handle position)
-
+                    var valPercent = ui.value / length * 100;
+                    that.element.find('.slider-selection').width(valPercent + '%');
                 }
             });
 
@@ -145,7 +144,7 @@
         _getLength : function() {
             var that = this,
                 length;
-            length = that._getValues().length;
+            length = that._getValues().length - 1;
             return length;
         },
 
