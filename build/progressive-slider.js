@@ -7,9 +7,6 @@
 (function($) {
 
     $.widget("ui.progressiveSlider", $.ui.slider, {
-        _globals : {
-            xLocation : null
-        },
         options : {
             min : 0,
             max : 100123123,
@@ -52,6 +49,8 @@
             });
 
             this._customize();
+            var trackWidth = (position / length * 100);
+            this.element.find('.slider-selection').width(trackWidth + '%');
         },
 
         /**
