@@ -1,5 +1,3 @@
 .idea
 atlassian-ide-plugin.xml
-old.js
-progressive_slider.iml
-build/build.iml
+*.iml

@@ -7,6 +7,9 @@
 (function($) {
 
     $.widget("ui.progressiveSlider", $.ui.slider, {
+        _globals : {
+            xLocation : null
+        },
         options : {
             min : 0,
             max : 100123123,
@@ -22,7 +25,8 @@
             var that = this,
                 length = that._getLength(),
                 position,
-                min = that.options.min;
+                min = that.options.min,
+                location;
 
             // Get position of slider according to value
             if ( $.inArray( that.options.position, that._getValues() ) > -1 ) {
@@ -42,8 +46,26 @@
                 value : position,
                 slide : function(e, ui) {
                     that._slide(ui);
+                    var offsetX = e.pageX - this.offsetLeft;
+                    that.element.find('.slider-selection').width(offsetX); //TODO: Little big buggy it needs to be aproximate to better position (this is on mouse position we need to handle position)
+
                 }
             });
+
+            this._customize();
+        },
+
+        /**
+         * Customize slider structure
+         * @param ui
+         * @private
+         */
+
+        _customize : function() {
+            this.element.addClass("slider");
+            this.element.children().wrapAll("<div class='progressive-slider-track slider-track' />");
+            this.element.children('.slider-track').prepend("<div class='progressive-slider-selection slider-selection' />");
+            this.element.find('.ui-slider-handle').addClass('progressive-slider-handle slider-handle');
         },
 
         _slide : function(ui) {
@@ -206,7 +228,8 @@
             console.log('hello this is hte call of slider and sliding :' + ui.value)
         },
         min : 100,
-        max : 500});
+        max : 500,
+        position : 300});
     });
 
 })(jQuery);
